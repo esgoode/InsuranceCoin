@@ -11,7 +11,7 @@ For each event, an InsuranceCoin contract is created
 
 * Users can buy and sell tokens, limited supply offered at a flat rate
 * If the event occurs, token holders can redeem tokens for ether
-* If the event does not occur, token can be redeemed for a fraction of their value
-* Ether not redeemed is added to an insurance pool that grows for each event
+* If the event does not occur, token can be redeemed for token of another event
+* Portion of Ether not redeemed is added to an insurance pool that grows for each event
 
 Essentially, their insurance compounds - as they continue to insure themselves against events, their payout will increase.
