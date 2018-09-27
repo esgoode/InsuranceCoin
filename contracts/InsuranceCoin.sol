@@ -7,20 +7,20 @@ contract InsuranceCoin is MintableToken {
 
   string public name;
   string public symbol;
-  InsuredEvent insEvent;
+  //InsuredEvent insEvent;
   uint8 public constant decimals = 18;
-  uint256 totalSupply_;
-  uint256 costPerToken;
-
+  uint totalSupply_;
+  uint costPerToken;
+  address owner;
   /**
    * @dev Constructor that creates token and gives msg.sender all initial tokens
    */
   constructor(
   	string coinName,
   	string coinSymbol,
-  	InsuredEvent newEvent,
-  	uint256 initSupply,
-  	uint256 cost
+  	//InsuredEvent newEvent,
+  	uint initSupply,
+  	uint cost
   	)
   public
   {
@@ -28,10 +28,10 @@ contract InsuranceCoin is MintableToken {
   	name = coinName;
   	symbol = coinSymbol;
 	totalSupply_ = initSupply;
-	insEvent = newEvent;
-	costPerToken = cost;
+	//insEvent = newEvent;
+	costPerToken = 1 / cost;
 
-	address owner = msg.sender;
+	owner = msg.sender;
   }
 
   // function eventEnds(
@@ -51,7 +51,7 @@ contract InsuranceCoin is MintableToken {
    /**
    * @dev Function that mints token given cost of token and amount of ether sent
    */
-  function buyTokensForEth() public {
+  function buyTokensForEth() public payable {
   	require(msg.value >= 0);
 
   	totalSupply_ += costPerToken * msg.value;
