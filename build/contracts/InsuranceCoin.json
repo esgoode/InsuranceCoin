@@ -468,7 +468,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 81,
-        "sourceUnit": 612,
+        "sourceUnit": 620,
         "src": "26:71:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -482,10 +482,10 @@
               "id": 3,
               "name": "MintableToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 611,
+              "referencedDeclaration": 619,
               "src": "153:13:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_MintableToken_$611",
+                "typeIdentifier": "t_contract$_MintableToken_$619",
                 "typeString": "contract MintableToken"
               }
             },
@@ -495,12 +495,12 @@
           }
         ],
         "contractDependencies": [
-          334,
-          430,
-          473,
-          505,
-          611,
-          858
+          342,
+          438,
+          481,
+          513,
+          619,
+          866
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -508,12 +508,12 @@
         "id": 80,
         "linearizedBaseContracts": [
           80,
-          611,
-          334,
-          858,
-          430,
-          473,
-          505
+          619,
+          342,
+          866,
+          438,
+          481,
+          513
         ],
         "name": "InsuranceCoin",
         "nodeType": "ContractDefinition",
@@ -949,7 +949,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 873,
+                        "referencedDeclaration": 881,
                         "src": "703:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1143,7 +1143,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 873,
+                            "referencedDeclaration": 881,
                             "src": "1040:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1202,10 +1202,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        876,
-                        877
+                        884,
+                        885
                       ],
-                      "referencedDeclaration": 876,
+                      "referencedDeclaration": 884,
                       "src": "1032:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1287,7 +1287,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 873,
+                          "referencedDeclaration": 881,
                           "src": "1092:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1336,7 +1336,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 873,
+                          "referencedDeclaration": 881,
                           "src": "1111:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1391,7 +1391,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 873,
+                            "referencedDeclaration": 881,
                             "src": "1138:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1434,7 +1434,7 @@
                       "name": "mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 591,
+                      "referencedDeclaration": 599,
                       "src": "1106:4:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -1522,7 +1522,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 81,
-        "sourceUnit": 612,
+        "sourceUnit": 620,
         "src": "26:71:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1536,10 +1536,10 @@
               "id": 3,
               "name": "MintableToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 611,
+              "referencedDeclaration": 619,
               "src": "153:13:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_MintableToken_$611",
+                "typeIdentifier": "t_contract$_MintableToken_$619",
                 "typeString": "contract MintableToken"
               }
             },
@@ -1549,12 +1549,12 @@
           }
         ],
         "contractDependencies": [
-          334,
-          430,
-          473,
-          505,
-          611,
-          858
+          342,
+          438,
+          481,
+          513,
+          619,
+          866
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -1562,12 +1562,12 @@
         "id": 80,
         "linearizedBaseContracts": [
           80,
-          611,
-          334,
-          858,
-          430,
-          473,
-          505
+          619,
+          342,
+          866,
+          438,
+          481,
+          513
         ],
         "name": "InsuranceCoin",
         "nodeType": "ContractDefinition",
@@ -2003,7 +2003,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 873,
+                        "referencedDeclaration": 881,
                         "src": "703:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -2197,7 +2197,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 873,
+                            "referencedDeclaration": 881,
                             "src": "1040:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2256,10 +2256,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        876,
-                        877
+                        884,
+                        885
                       ],
-                      "referencedDeclaration": 876,
+                      "referencedDeclaration": 884,
                       "src": "1032:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2341,7 +2341,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 873,
+                          "referencedDeclaration": 881,
                           "src": "1092:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2390,7 +2390,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 873,
+                          "referencedDeclaration": 881,
                           "src": "1111:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2445,7 +2445,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 873,
+                            "referencedDeclaration": 881,
                             "src": "1138:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2488,7 +2488,7 @@
                       "name": "mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 591,
+                      "referencedDeclaration": 599,
                       "src": "1106:4:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -2586,5 +2586,5 @@
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-09-30T02:37:07.819Z"
+  "updatedAt": "2018-09-30T03:06:04.207Z"
 }

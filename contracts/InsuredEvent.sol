@@ -9,22 +9,22 @@ contract InsuredEvent {
 	string title;
 	string description;
 	string symbol;
-	uint256 cost;
-	uint256 time;
+	uint cost;
+	uint time;
 
 
 	address owner;
 	address[] verifiers;
 	address public tokenAddress;
 
-	address coinContract;
+	InsuranceCoin public coinContract;
 
 	constructor(
 		string _title,
 		string _description,
 		string _symbol,
-		uint256 _cost,
-		uint256 _time,
+		uint _cost,
+		uint _time,
 		address[] _verifiers
 		) 
 	public
@@ -37,5 +37,13 @@ contract InsuredEvent {
 		verifiers = _verifiers;
 		coinContract = new InsuranceCoin(title, symbol, 0, cost);
 	}
+
+	function getContract() 
+		public 
+		returns (InsuranceCoin) 
+	{
+		return coinContract;
+	}
+
 
 }
