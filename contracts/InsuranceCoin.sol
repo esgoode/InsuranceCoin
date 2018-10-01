@@ -7,46 +7,27 @@ contract InsuranceCoin is MintableToken {
 
   string public name;
   string public symbol;
-  //InsuredEvent insEvent;
   uint8 public constant decimals = 18;
   uint totalSupply_;
   uint costPerToken;
   address owner;
+
   /**
-   * @dev Constructor that creates token and gives msg.sender all initial tokens
+   * @dev Constructor that creates token
+   * @param _name name of coin
+   * @param _symbol symbol of coin
+   * @param _totalSupply initial supply of coins
+   * @param _cost cost per token
    */
-  constructor(
-  	string coinName,
-  	string coinSymbol,
-  	//InsuredEvent newEvent,
-  	uint initSupply,
-  	uint cost
-  	)
-  public
+  constructor(string _name, string _symbol, uint _totalSupply, uint _cost) public
   {
 
-  	name = coinName;
-  	symbol = coinSymbol;
-	totalSupply_ = initSupply;
-	//insEvent = newEvent;
-	costPerToken = 1 / cost;
-
-	owner = msg.sender;
+  	name = _name;
+  	symbol = _symbol;
+    totalSupply_ = _totalSupply;
+    costPerToken = 1 / _cost;
+    owner = msg.sender;
   }
-
-  // function eventEnds(
-  // 	bool hasOccured
-  // 	) 
-  // public 
-  // {
-  // 	require(creator == msg.sender)
-
-  // 	if(hasOccured){
-
-  // 	} else {
-
-  // 	}
-  // }
 
    /**
    * @dev Function that mints token given cost of token and amount of ether sent
