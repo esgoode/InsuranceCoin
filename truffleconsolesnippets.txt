@@ -1,12 +1,12 @@
 InsuranceCoin.deployed().then(function(instance){meta = instance; return meta.balanceOf('0x17bfaace61101665bc97f6f203d6366379c68829');});
 
-InsuranceCoin.deployed().then(function(instance){meta = instance; return meta.transfer('0x52cb091a6ab0c7ee52d6c085837d0b53843c89f1', 5);});
+InsuranceCoin.deployed().then(function(instance){meta = instance; return meta.balanceOf('0x45514b28531c99706b41394a6c4bfd9a9e9a4acc');});
 
 InsuredEvent.deployed().then(function(instance){meta = instance; return meta.getContract()});
 
 
 
-web3.eth.getBalance("0x17bfaace61101665bc97f6f203d6366379c68829")
+web3.eth.getBalance("0x45514b28531c99706b41394a6c4bfd9a9e9a4acc")
  
 
 web3.eth.getTransaction('0xd32496ad635b6320c7cccd83092da5054b8184c4604f82a7e8af71261bdd0f76')
