@@ -31,11 +31,9 @@ contract InsuranceCoin is MintableToken {
     * @dev Function that mints token given cost of token and amount of ether sent
     */
     function buyTokensForEth() public payable {
-        require(msg.value >= 0);
+        require(msg.value >= 0, "not greater than 0");
 
         totalSupply_ += costPerToken * msg.value;
         mint(msg.sender, costPerToken * msg.value);
     }
-
-
 }
