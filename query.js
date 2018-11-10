@@ -1,4 +1,4 @@
-const artifacts = require('./build/contracts/InsuredEvent.json')
+module.exports = const artifacts = require('./build/contracts/InsuredEvent.json')
 var Web3 = require("web3")
 var provider = new Web3.providers.HttpProvider("http://localhost:9545")
 const contract = require('truffle-contract')
