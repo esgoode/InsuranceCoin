@@ -32,7 +32,7 @@ contract InsuredEvent {
     /**
     * @dev Reverts if not in time range.
     */
-    modifier onlyAfter(uint _time) { require (now >= _time); _; }
+    //modifier onlyAfter(uint _time) {require (now >= _time)"not after period"}
 
     /**
     * @notice creating instance and InsuranceCoin for event
@@ -42,24 +42,22 @@ contract InsuredEvent {
     * @param _symbol token symbol
     * @param _cost cost per token
     * @param _time time of event
-    * @param _verifiers address to vote on result of event
     */
-    constructor(string _title, string _description, string _symbol, uint _cost, uint _time, address[] _verifiers) public
+    constructor(string _title, string _description, string _symbol, uint _cost, uint _time, uint _numVerifiers, address coinAddress) public
     {
         title = _title;
         description = _description;
         symbol = _symbol;
         cost = _cost;
         time = _time;
+        numVerifiers = _numVerifiers;
 
-        coinContract = new InsuranceCoin(title, symbol, 0, cost);
+        coinContract = InsuranceCoin(coinAddress);
+    }
 
-        numVerifiers = _verifiers.length;
-
-        for(uint i = 0; i < numVerifiers; ++i) {
-            votes[_verifiers[i]] = State.before;
-            verifiers[_verifiers[i]] = true;
-        }
+    function addVerrifier(address verifierAddress) public returns (bool){
+        verifiers[verifierAddress] = true;
+        verifiers[verifierAddress] = State.before;
     }
 
     /**
@@ -77,7 +75,7 @@ contract InsuredEvent {
     */
     function eventResults(uint _result) public
     {
-        require(contains(msg.sender));
+        require(contains(msg.sender), "not contract creator");
         votes[msg.sender] = State(_result);
 
         if(votes[msg.sender] == State.yes)
@@ -97,10 +95,10 @@ contract InsuredEvent {
     /**
     * @return returns whether the results have occured or not, sets result of final state
     */
-    function checkEvent() onlyAfter(time) public returns (bool){
+    function checkEvent() public returns (bool){
 
 
-        require ((yesVotes + noVotes) == numVerifiers);
+        require ((yesVotes + noVotes) == numVerifiers, "not enough votes");
         if(yesVotes > noVotes)
             finalState = State.yes;
         else if (noVotes > yesVotes)
@@ -109,5 +107,10 @@ contract InsuredEvent {
         //need condition when tie, participants receive money back
 
         return yesVotes > noVotes;
+    }
+
+    function vote(uint voteNum) public {
+        require(verifiers[msg.sender], "caller not a verifier");
+        votes[msg.sender] = State(voteNum);
     }
 }

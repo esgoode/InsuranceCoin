@@ -1,6 +1,10 @@
+const InsuranceCoin = artifacts.require("./InsuranceCoin.sol")
 const InsuredEvent = artifacts.require("./InsuredEvent.sol")
+
 const verifierAddress = web3.eth.accounts[1]
 
 module.exports = function(deployer) {
-	deployer.deploy(InsuredEvent, "string _title", "string _description", "string _symbol", 20, 20, [verifierAddress]);
+	deployer.deploy(One).then(function() {
+		return deployer.deploy(Two, One.address)
+	  });
 };
