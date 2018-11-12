@@ -29,6 +29,7 @@ contract InsuredEvent {
     mapping (address => bool) private verifiers;
 
     InsuranceCoin public coinContract;
+    event LogCreatedCoin(address childCoin);
     /**
     * @dev Reverts if not in time range.
     */
@@ -52,7 +53,8 @@ contract InsuredEvent {
         time = _time;
         numVerifiers = _numVerifiers;
 
-        coinContract = InsuranceCoin(coinAddress);
+        coinContract = new InsuranceCoin(_title, _symbol, 20, cost);
+        LogCreatedCoin(coinAddress);
     }
 
     function addVerrifier(address verifierAddress) public returns (bool){
