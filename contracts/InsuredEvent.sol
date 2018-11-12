@@ -57,7 +57,7 @@ contract InsuredEvent {
 
     function addVerrifier(address verifierAddress) public returns (bool){
         verifiers[verifierAddress] = true;
-        verifiers[verifierAddress] = State.before;
+        votes[verifierAddress] = State.before;
     }
 
     /**
@@ -107,10 +107,5 @@ contract InsuredEvent {
         //need condition when tie, participants receive money back
 
         return yesVotes > noVotes;
-    }
-
-    function vote(uint voteNum) public {
-        require(verifiers[msg.sender], "caller not a verifier");
-        votes[msg.sender] = State(voteNum);
     }
 }
