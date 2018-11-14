@@ -29,7 +29,7 @@ contract InsuredEvent {
     mapping (address => bool) private verifiers;
 
     InsuranceCoin public coinContract;
-    event LogCreatedCoin(address childCoin);
+    event LogCreatedCoin(InsuranceCoin childCoin);
     /**
     * @dev Reverts if not in time range.
     */
@@ -44,7 +44,7 @@ contract InsuredEvent {
     * @param _cost cost per token
     * @param _time time of event
     */
-    constructor(string _title, string _description, string _symbol, uint _cost, uint _time, uint _numVerifiers, address coinAddress) public
+    constructor(string _title, string _description, string _symbol, uint _cost, uint _time, uint _numVerifiers) public
     {
         title = _title;
         description = _description;
@@ -54,7 +54,7 @@ contract InsuredEvent {
         numVerifiers = _numVerifiers;
 
         coinContract = new InsuranceCoin(_title, _symbol, 20, _cost);
-        emit LogCreatedCoin(coinAddress);
+        emit LogCreatedCoin(coinContract);
     }
 
     function addVerrifier(address verifierAddress) public returns (bool){
