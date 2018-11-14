@@ -53,8 +53,8 @@ contract InsuredEvent {
         time = _time;
         numVerifiers = _numVerifiers;
 
-        coinContract = new InsuranceCoin(_title, _symbol, 20, cost);
-        LogCreatedCoin(coinAddress);
+        coinContract = new InsuranceCoin(_title, _symbol, 20, _cost);
+        emit LogCreatedCoin(coinAddress);
     }
 
     function addVerrifier(address verifierAddress) public returns (bool){
