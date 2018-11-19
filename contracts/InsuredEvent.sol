@@ -22,7 +22,6 @@ contract InsuredEvent {
     State finalState = State.before;
 
     address owner;
-    address public tokenAddress;
 
     //maps verifiers address to vote and if verifier
     mapping (address => State) private votes;
@@ -72,18 +71,6 @@ contract InsuredEvent {
         return coinContract;
     }
 
-    function getYesVotes() public view returns (uint) 
-    {
-        return yesVotes;
-    }
-
-    function getNoVotes() public view returns (uint) 
-    {
-        return noVotes;
-    }
-
-
-
     /**
     * @dev takes in verifiers result and adjusts tallies
     * @param _result verifers vote
@@ -91,6 +78,7 @@ contract InsuredEvent {
     function eventResults(uint _result) public
     {
         //require(contains(msg.sender), "not contract creator");
+        require(eventOccured, "event voting is over");
         votes[msg.sender] = State(_result);
 
         if(votes[msg.sender] == State.yes)
@@ -110,17 +98,31 @@ contract InsuredEvent {
     /**
     * @return returns whether the results have occured or not, sets result of final state
     */
-    function checkEvent() public view returns (bool){
+    function countVotes() public view returns (bool){
 
+        require(eventOccured, "event voting is over");
 
-        //require ((yesVotes + noVotes) == numVerifiers, "not enough votes");
         if(yesVotes > noVotes)
             finalState = State.yes;
         else if (noVotes > yesVotes)
             finalState = State.no;
 
-        //need condition when tie, participants receive money back
-
         return yesVotes > noVotes;
     }
+
+    function finalizeResults() public
+    {
+        //ensure all votes are cast
+        require(numVerifiers == (noVotes + yesVotes), "not all votes are cast");
+
+
+        //check results
+        checkEvent();
+        eventOccured = true;
+        
+        //set coin results
+        coinContract.setResult(finalState);
+    }
+
+
 }

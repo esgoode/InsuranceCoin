@@ -3,12 +3,13 @@ import "../node_modules/openzeppelin-solidity/contracts/token/ERC20/MintableToke
 
 contract InsuranceCoin is MintableToken {
 
-    string public name;
+    string public  name;
     string public symbol;
     uint8 public constant decimals = 18;
     uint totalSupply_;
     uint costPerToken;
-    address owner;
+    address creator;
+    bool eventResult;
 
     /**
     * @dev Constructor that creates token
@@ -24,7 +25,7 @@ contract InsuranceCoin is MintableToken {
         symbol = _symbol;
         totalSupply_ = _totalSupply;
         costPerToken = 1 / _cost;
-        owner = msg.sender;
+        creator = msg.sender;
     }
 
     /**
@@ -35,5 +36,22 @@ contract InsuranceCoin is MintableToken {
 
         totalSupply_ += costPerToken * msg.value;
         mint(msg.sender, costPerToken * msg.value);
+    }
+
+    function setResult(bool result) public {
+        require(msg.sender == creator, "not called from InsuredEvent contract");
+
+        eventResult = result;
+    }
+
+    function unlockEth(uint256 _value) public payable {
+        require(eventResult, "event has or did not occur");
+
+        msg.sender.transfer(_value * costPerToken);
+
+        balances[msg.sender] = balances[msg.sender].sub(_value);
+
+        
+
     }
 }
