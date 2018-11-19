@@ -57,9 +57,10 @@ contract InsuredEvent {
         emit LogCreatedCoin(coinContract);
     }
 
-    function addVerrifier(address verifierAddress) public returns (bool){
+    function addVerrifier(address verifierAddress) public returns (address){
         verifiers[verifierAddress] = true;
         votes[verifierAddress] = State.before;
+        return verifierAddress;
     }
 
     /**
@@ -71,13 +72,25 @@ contract InsuredEvent {
         return coinContract;
     }
 
+    function getYesVotes() public view returns (uint) 
+    {
+        return yesVotes;
+    }
+
+    function getNoVotes() public view returns (uint) 
+    {
+        return noVotes;
+    }
+
+
+
     /**
     * @dev takes in verifiers result and adjusts tallies
     * @param _result verifers vote
     */
     function eventResults(uint _result) public
     {
-        require(contains(msg.sender), "not contract creator");
+        //require(contains(msg.sender), "not contract creator");
         votes[msg.sender] = State(_result);
 
         if(votes[msg.sender] == State.yes)
@@ -90,17 +103,17 @@ contract InsuredEvent {
     * @dev checks to see if address is a verifier
     * @param _verifier verifier to check
     */
-    function contains(address _verifier) private view returns (bool){
+    function contains(address _verifier) public view returns (bool){
         return verifiers[_verifier];
     }
 
     /**
     * @return returns whether the results have occured or not, sets result of final state
     */
-    function checkEvent() public returns (bool){
+    function checkEvent() public view returns (bool){
 
 
-        require ((yesVotes + noVotes) == numVerifiers, "not enough votes");
+        //require ((yesVotes + noVotes) == numVerifiers, "not enough votes");
         if(yesVotes > noVotes)
             finalState = State.yes;
         else if (noVotes > yesVotes)

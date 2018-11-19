@@ -4,6 +4,12 @@ InsuranceCoin.deployed().then(function(instance){meta = instance; return meta.ba
 
 InsuredEvent.deployed().then(function(instance){meta = instance; return meta.getContract()});
 
+InsuredEvent.deployed().then(function(instance){meta = instance; return meta.addVerrifier('0x09ea68a2db8b873ac760428a4a2bdf1d8c4ec70d')});
+
+InsuredEvent.deployed().then(function(instance){meta = instance; return meta.contains('0x09ea68a2db8b873ac760428a4a2bdf1d8c4ec70d')});
+
+
+
 
 
 web3.eth.getBalance("0x45514b28531c99706b41394a6c4bfd9a9e9a4acc")
@@ -11,4 +17,6 @@ web3.eth.getBalance("0x45514b28531c99706b41394a6c4bfd9a9e9a4acc")
 
 web3.eth.getTransaction('0xd32496ad635b6320c7cccd83092da5054b8184c4604f82a7e8af71261bdd0f76')
 
-InsuranceCoin.deployed().then(function(instance){meta = instance; return meta.totalSupply();});
+coin.deployed().then(function(instance){meta = instance; return meta.totalSupply();});
+
+coin.deployed().then(function(instance){meta = instance; return meta.name})
