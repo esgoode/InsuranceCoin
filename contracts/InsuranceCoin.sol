@@ -46,12 +46,11 @@ contract InsuranceCoin is MintableToken {
 
     function unlockEth(uint256 _value) public payable {
         require(eventResult, "event has or did not occur");
+        require(balances[msg.sender] >= _value, "account below balance");
+        require(_value > 0, "requested value below 0");
 
         msg.sender.transfer(_value * costPerToken);
 
         balances[msg.sender] = balances[msg.sender].sub(_value);
-
-        
-
     }
 }

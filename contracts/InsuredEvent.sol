@@ -77,10 +77,13 @@ contract InsuredEvent {
     */
     function eventResults(uint _result) public
     {
-        //require(contains(msg.sender), "not contract creator");
+        require(contains(msg.sender), "not a verified validator");
         require(eventOccured, "event voting is over");
+
+        //update verifier vote
         votes[msg.sender] = State(_result);
 
+        //increment vote count
         if(votes[msg.sender] == State.yes)
             yesVotes++;
         else if(votes[msg.sender] == State.no)
