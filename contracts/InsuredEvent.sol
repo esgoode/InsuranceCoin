@@ -17,9 +17,10 @@ contract InsuredEvent {
     uint numVerifiers;
 
     bool eventOccured;
+    bool finalState;
 
     enum State { yes, no, before }
-    State finalState = State.before;
+    
 
     address owner;
 
@@ -52,7 +53,7 @@ contract InsuredEvent {
         time = _time;
         numVerifiers = _numVerifiers;
 
-        coinContract = new InsuranceCoin(_title, _symbol, 20, _cost);
+        coinContract = new InsuranceCoin(_title, _symbol, _cost);
         emit LogCreatedCoin(coinContract);
     }
 
@@ -106,9 +107,9 @@ contract InsuredEvent {
         require(eventOccured, "event voting is over");
 
         if(yesVotes > noVotes)
-            finalState = State.yes;
+            finalState = true;
         else if (noVotes > yesVotes)
-            finalState = State.no;
+            finalState = false;
 
         return yesVotes > noVotes;
     }
@@ -120,7 +121,7 @@ contract InsuredEvent {
 
 
         //check results
-        checkEvent();
+        countVotes();
         eventOccured = true;
         
         //set coin results
